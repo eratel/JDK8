@@ -23,11 +23,12 @@ public class LambdaExample {
 
     @Test
     public void test1(){
-        study( user -> System.out.println("----------------"));
+        study( user -> System.out.println(user.getName()));
 //        study((user) -> System.out.println("---------------"));
     }
 
     private void study(UserArgsInterface c){
+       c.study(new User("name",10));
     }
 
     @Test
