@@ -14,11 +14,8 @@ public class LambdaExample {
         eat(() -> System.out.println("-----------"));
     }
 
-    private void eat(){
-
-    }
-    private void eat(UserInterface c){
-
+    private void eat(Runnable c){
+        c.run();
     }
 
 
