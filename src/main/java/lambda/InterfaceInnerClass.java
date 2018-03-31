@@ -30,6 +30,7 @@ public class InterfaceInnerClass {
     }
 
     //lambda
+    //Integer.compare 输出结果  大于=1；等于=0；小于=-1
     public List<String> compareLambda(List<String> wordList) {
         wordList.sort((s1, s2) -> Integer.compare(s1.length(), s2.length()));
         return wordList;
