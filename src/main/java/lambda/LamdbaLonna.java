@@ -5,10 +5,14 @@ import org.junit.Test;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import static java.util.Arrays.asList;
+import static org.junit.Assert.assertEquals;
 
 /**
  * @program: jdk8
@@ -56,5 +60,21 @@ public class LamdbaLonna {
         //将stream转换为List<String> 的对象
         List<String> collect = stringStream.collect(Collectors.<String>toList());
 
+    }
+
+    /**
+     * 获取最小 最大
+     */
+    @Test
+    public void streamsMaxLength() {
+        List<User> uu = asList(new User("Bakai", 524),
+                new User("Violets for Your Furs", 378),
+                new User("Time Was", 451));
+
+        User user = uu.stream()
+//                .min(Comparator.comparing(u -> u.getAge()))
+                .max(Comparator.comparing(u -> u.getAge()))
+                .get();
+        System.out.print(user);
     }
 }
