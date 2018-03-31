@@ -14,8 +14,8 @@ public class LambdaExample {
         eat(() -> System.out.println("-----------"));
     }
 
-    private void eat(Runnable c){
-        c.run();
+    private void eat(UserInterface c){
+        c.eat();
     }
 
 
@@ -24,7 +24,6 @@ public class LambdaExample {
     @Test
     public void test1(){
         study( user -> System.out.println(user.getName()));
-//        study((user) -> System.out.println("---------------"));
     }
 
     private void study(UserArgsInterface c){
