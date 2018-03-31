@@ -2,11 +2,7 @@ package lambda;
 
 import lombok.Data;
 
-/**
- * Author:JettZhou
- * Date: 2017/5/11
- * Tine:10:47
- */
+
 @Data
 public class User {
 
