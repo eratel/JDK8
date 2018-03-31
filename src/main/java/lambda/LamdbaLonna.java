@@ -24,6 +24,9 @@ public class LamdbaLonna {
         System.out.print(l);
     }
 
+    /**
+     *filter 过滤数据
+     */
     public static long fromLondonPrinted(List<String> allArtists) {
         // BEGIN internal_count_londoners_printed
         long count = allArtists.stream()
@@ -37,6 +40,9 @@ public class LamdbaLonna {
     }
 
     @Test
+    /**
+     * map 操作符
+     */
     public void allToUpperCase(){
 //        Stream<String> a = Stream.of("a", "b", "c");
 //        List<String> collect = a.map(string -> string.toUpperCase())
