@@ -12,7 +12,8 @@ import java.util.List;
  * @create: 2018-03-31 16:16
  **/
 public class LambdaExample {
-
+////////////////////////////////////////////////////////////////
+// 接口调用
     /** lambda第一种格式，无参 */
     @Test
     public void test(){
@@ -35,6 +36,11 @@ public class LambdaExample {
        c.study(new User("name",10));
     }
 
+
+
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////
     @Test
     public void getLoopList() {
         List<User> all = new ArrayList<>();
