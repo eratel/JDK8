@@ -8,8 +8,6 @@ import java.util.stream.Stream;
 
 import static java.util.Arrays.asList;
 import static java.util.stream.Collectors.toList;
-import static java.util.stream.Collectors.toSet;
-import static org.junit.Assert.assertEquals;
 
 /**
  * @program: jdk8
@@ -85,6 +83,9 @@ public class LamdbaLonna {
         System.out.print(reduce.get());
     }
 
+    /////////////////////////////////////////////////////////////////////////////////////////////
+    //以下是练习
+
     /**
      * 找到对象中 name 开头ba 的年龄是多少
      */
@@ -104,4 +105,18 @@ public class LamdbaLonna {
         // END origins_of_bands
         System.out.print(origins.toString());
     }
+
+    @Test
+    public void findName() {
+        List<User> users = asList(new User("Bakai", 524),
+                new User("Violets for Your Furs", 378),
+                new User("Time Was", 451));
+        Set<String> tn = new HashSet<>();
+        Stream<User> b = users.stream()
+                .filter(user -> user.getName().startsWith("B"));
+        Stream<String> stringStream = b.map(user -> user.getName());
+        stringStream.forEach(name ->tn.add(name) );
+        System.out.print(tn);
+    }
+
 }
