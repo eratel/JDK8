@@ -141,6 +141,7 @@ public class LamdbaTest {
 
         IntSummaryStatistics trackLengthStats
                 = users.stream()
+                //转换为int类型 自动解包
                 .mapToInt(user -> user.getAge() )
                 .summaryStatistics();
 
