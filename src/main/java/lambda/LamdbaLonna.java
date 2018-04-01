@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static java.util.Arrays.asList;
+import static org.junit.Assert.assertEquals;
 
 /**
  * @program: jdk8
@@ -72,5 +73,16 @@ public class LamdbaLonna {
                 .max(Comparator.comparing(u -> u.getAge()))
                 .get();
         System.out.print(user);
+    }
+
+    /**
+     * reduce  返回值为BinaryOperator
+     */
+    @Test
+    public void sumUsingReduce() {
+        int count = Stream.of(1, 2, 3)
+                .reduce(0, (acc, element) -> acc + element);
+        System.out.print(count);
+        assertEquals(6, count);//断言
     }
 }
