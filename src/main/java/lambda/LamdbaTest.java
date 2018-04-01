@@ -15,7 +15,7 @@ import static java.util.stream.Collectors.toList;
  * @author: ABHSY.Jason
  * @create: 2018-03-31 16:16
  **/
-public class LamdbaLonna {
+public class LamdbaTest {
 
     public static void main(String arg[]) {
         List<String> strings = Arrays.asList("name", "name1", "name2");
