@@ -112,10 +112,10 @@ public class LamdbaTest {
                 new User("Violets for Your Furs", 378),
                 new User("Time Was", 451));
         Set<String> tn = new HashSet<>();
-        Stream<User> b = users.stream()
-                .filter(user -> user.getName().startsWith("B"));
-        Stream<String> stringStream = b.map(user -> user.getName());
-        stringStream.forEach(name ->tn.add(name) );
+        users.stream()
+                .filter(user -> user.getName().startsWith("B"))
+                .map(user -> user.getName())
+                .forEach(name ->tn.add(name));
         System.out.print(tn);
     }
 
