@@ -2,17 +2,13 @@ package lambda;
 
 import org.junit.Test;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static java.util.Arrays.asList;
-import static org.junit.Assert.assertEquals;
 
 /**
  * @program: jdk8
@@ -22,14 +18,14 @@ import static org.junit.Assert.assertEquals;
  **/
 public class LamdbaLonna {
 
-    public static void main(String arg[]){
+    public static void main(String arg[]) {
         List<String> strings = Arrays.asList("name", "name1", "name2");
         long l = fromLondonPrinted(strings);
         System.out.print(l);
     }
 
     /**
-     *filter 过滤数据
+     * filter 过滤数据
      */
     public static long fromLondonPrinted(List<String> allArtists) {
         // BEGIN internal_count_londoners_printed
@@ -47,7 +43,7 @@ public class LamdbaLonna {
     /**
      * map 操作符
      */
-    public void allToUpperCase(){
+    public void allToUpperCase() {
 //        Stream<String> a = Stream.of("a", "b", "c");
 //        List<String> collect = a.map(string -> string.toUpperCase())
 //                .collect(Collectors.<String>toList());
