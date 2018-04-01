@@ -127,4 +127,28 @@ public class LamdbaTest {
         System.out.print(reduce.get());
     }
 
+
+    /**
+     * IntSummaryStatistics  int
+     * LongSummaryStatistics  long
+     * 等等 都包含  man min average sum 这些方法
+     */
+    @Test
+    public void printTrackLengthStatistics() {
+        List<User> users = asList(new User("Bakai", 524),
+                new User("Violets for Your Furs", 378),
+                new User("Time Was", 451));
+
+        IntSummaryStatistics trackLengthStats
+                = users.stream()
+                .mapToInt(user -> user.getAge() )
+                .summaryStatistics();
+
+        System.out.printf("Max: %d, Min: %d, Ave: %f, Sum: %d",
+                trackLengthStats.getMax(),
+                trackLengthStats.getMin(),
+                trackLengthStats.getAverage(),
+                trackLengthStats.getSum());
+    }
+
 }
