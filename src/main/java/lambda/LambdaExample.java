@@ -5,7 +5,12 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * @program: jdk8
+ * @GitHub: https://github.com/ABHSY
+ * @author: ABHSY.Jason
+ * @create: 2018-03-31 16:16
+ **/
 public class LambdaExample {
 
     /** lambda第一种格式，无参 */

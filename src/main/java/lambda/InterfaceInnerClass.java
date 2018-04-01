@@ -4,6 +4,12 @@ import org.junit.Test;
 
 import java.util.*;
 
+/**
+ * @program: jdk8
+ * @GitHub: https://github.com/ABHSY
+ * @author: ABHSY.Jason
+ * @create: 2018-03-31 16:16
+ **/
 public class InterfaceInnerClass {
     @Test
     public void test() {
