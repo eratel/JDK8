@@ -152,4 +152,20 @@ public class LamdbaTest {
                 trackLengthStats.getSum());
     }
 
+
+    /**
+     * map 循环
+     */
+    @Test
+    public void countAlbums() {
+        HashMap map = new HashMap<String,Integer>();
+        map.put("a",1);
+        map.put("b",2);
+        map.put("c",3);
+        Map<String, Integer> countOfAlbums = new HashMap<>();
+        map.forEach((k, v) -> {
+            countOfAlbums.put(k.toString().toUpperCase(), Integer.parseInt(v.toString()));
+        });
+        System.out.print(countOfAlbums.toString());
+    }
 }
