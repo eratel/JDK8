@@ -49,6 +49,10 @@ public class LambdaExample {
 
 
     ////////////////////////////////////////////////////////////////////////////////////////
+
+    /**
+     * for 循环
+     */
     @Test
     public void getLoopList() {
         List<User> all = new ArrayList<>();
