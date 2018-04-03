@@ -45,6 +45,7 @@ public class InterfaceInnerClass {
     //函数(非空验证)
     public List<String> compareLambdaFunction(List<String> wordList) {
         wordList.sort(Comparator.comparingLong(String::length));
+       // wordList.sort(Comparator.comparingLong((a) -> a.length()));
         return wordList;
     }
 
