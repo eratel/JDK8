@@ -15,11 +15,19 @@ public class LambdaExample {
 ////////////////////////////////////////////////////////////////
 // 接口调用
     /** lambda第一种格式，无参 */
+    /**
+     * 无非就是将实现 作为参数 使用lamdba表达式的形式实现
+     * 然后在类中被调用
+     */
     @Test
     public void test(){
         eat(() -> System.out.println("-----------"));
     }
 
+    /**
+     * 当你在实现底层框架 实现lamdba的形式时。 这块写入base 业务逻辑
+     * 传输 关键业务逻辑
+     */
     private void eat(UserInterface c){
         c.eat();
     }
