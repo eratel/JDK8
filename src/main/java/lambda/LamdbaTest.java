@@ -115,7 +115,8 @@ public class LamdbaTest {
         users.stream()
                 .filter(user -> user.getName().startsWith("B"))
                 .map(user -> user.getName())
-                .forEach(name ->tn.add(name));
+                .forEachOrdered(name ->tn.add(name));
+//                .forEach(name ->tn.add(name));
         System.out.print(tn);
     }
 
