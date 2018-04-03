@@ -53,7 +53,7 @@ public class LamdbaTest {
             return a.toUpperCase();
         });
         //将stream转换为List<String> 的对象
-        List<String> collect = stringStream.collect(Collectors.<String>toList());
+        List<String> collect = stringStream.collect(toList());
 
     }
 
@@ -168,4 +168,7 @@ public class LamdbaTest {
         });
         System.out.print(countOfAlbums.toString());
     }
+
+
+
 }
