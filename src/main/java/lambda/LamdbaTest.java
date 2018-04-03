@@ -49,11 +49,11 @@ public class LamdbaTest {
 //        System.out.print(collect.toString());
 
         List<String> strings = Arrays.asList("a", "b", "c");
-        Stream<String> stringStream = strings.stream().map(a -> {
+        List<String> list = strings.stream().map(a -> {
             return a.toUpperCase();
-        });
+        }).collect(toList());
         //将stream转换为List<String> 的对象
-        List<String> collect = stringStream.collect(toList());
+//        List<String> collect = stringStream.collect(toList());
 
     }
 
