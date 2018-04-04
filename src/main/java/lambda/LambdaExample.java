@@ -2,71 +2,67 @@ package lambda;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * @program: jdk8
  * @GitHub: https://github.com/ABHSY
  * @author: ABHSY.Jason
  * @create: 2018-03-31 16:16
+ * 匿名内部类 比较 等
  **/
 public class LambdaExample {
-////////////////////////////////////////////////////////////////
-// 接口调用
-    /** lambda第一种格式，无参 */
-    /**
-     * 无非就是将实现 作为参数 使用lamdba表达式的形式实现
-     * 然后在类中被调用
-     */
     @Test
-    public void test(){
-        eat(() -> System.out.println("-----------"));
-    }
-
-    /**
-     * 当你在实现底层框架 实现lamdba的形式时。 这块写入base 业务逻辑
-     * 传输 关键业务逻辑
-     */
-    private void eat(UserInterface c){
-        c.eat();
-    }
+    public void test() {
+        List<String> wordList = Arrays.asList("123456", "1234", "123", "12", "11111");
 
 
-    /** lambda第二种格式 ，有参 */
+        System.out.println(compare(wordList));
+        System.out.println(compareLambda(wordList));
+        System.out.println(compareLambdaFunction(wordList));
 
-    @Test
-    public void test1(){
-        study( user -> System.out.println(user.getName()));
-    }
-
-    private void study(UserArgsInterface c){
-       c.study(new User("name",10));
-    }
-
-
-
-
-
-    ////////////////////////////////////////////////////////////////////////////////////////
-
-    /**
-     * for 循环
-     */
-    @Test
-    public void getLoopList() {
-        List<User> all = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            all.add(new User("111"+i, 11));
-        }
-        all.forEach(user -> System.out.print(user));
 
     }
 
-    public void lambdaLoopList(List<User> list) {
-        //三行循环效果相同
-        //list.forEach(user -> System.out.println(user.toString()));
-        //list.forEach(user -> System.out.println(user));//下面一行代码就是简写形式
-        list.forEach(System.out::println);
+    //匿名内部类
+    public List<String> compare(List<String> wordList) {
+
+        wordList.sort(new Comparator<String>() {
+            @Override
+            public int compare(String s1, String s2) {
+                return Integer.compare(s1.length(), s2.length());
+            }
+        });
+        return wordList;
     }
+
+    //lambda
+    //Integer.compare 输出结果  大于=1；等于=0；小于=-1
+    public List<String> compareLambda(List<String> wordList) {
+        wordList.sort((s1, s2) -> Integer.compare(s1.length(), s2.length()));
+        return wordList;
+    }
+
+    //函数(非空验证)
+    public List<String> compareLambdaFunction(List<String> wordList) {
+        wordList.sort(Comparator.comparingLong(String::length));
+       // wordList.sort(Comparator.comparingLong((a) -> a.length()));
+        return wordList;
+    }
+
+
+    public void treeSetCompare() {
+
+        Set<User> set = new TreeSet<>(Comparator.comparing(User::getAge));
+        //原来的写法
+        Set<User> oldSet = new TreeSet<>(new Comparator<User>() {
+            @Override
+            public int compare(User o1, User o2) {
+                return o1.getAge() - o2.getAge();
+            }
+        });
+    }
+
+
 }
+
