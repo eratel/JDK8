@@ -2,7 +2,9 @@ package lambda;
 
 import org.junit.Test;
 
+import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -115,14 +117,14 @@ public class LamdbaTest {
         users.stream()
                 .filter(user -> user.getName().startsWith("B"))
                 .map(user -> user.getName())
-                .forEachOrdered(name ->tn.add(name));
+                .forEachOrdered(name -> tn.add(name));
 //                .forEach(name ->tn.add(name));
         System.out.print(tn);
     }
 
     //计算流中所有数之和
     @Test
-    public void addUP(){
+    public void addUP() {
         List<Integer> wordList = Arrays.asList(1, 2, 3);
         Optional<Integer> reduce = wordList.stream().reduce((nu1, nu2) -> nu1 + nu2);
         System.out.print(reduce.get());
@@ -143,7 +145,7 @@ public class LamdbaTest {
         IntSummaryStatistics trackLengthStats
                 = users.stream()
                 //转换为int类型 自动解包
-                .mapToInt(user -> user.getAge() )
+                .mapToInt(user -> user.getAge())
                 .summaryStatistics();
 
         System.out.printf("Max: %d, Min: %d, Ave: %f, Sum: %d",
@@ -159,10 +161,10 @@ public class LamdbaTest {
      */
     @Test
     public void countAlbums() {
-        HashMap map = new HashMap<String,Integer>();
-        map.put("a",1);
-        map.put("b",2);
-        map.put("c",3);
+        HashMap map = new HashMap<String, Integer>();
+        map.put("a", 1);
+        map.put("b", 2);
+        map.put("c", 3);
         Map<String, Integer> countOfAlbums = new HashMap<>();
         map.forEach((k, v) -> {
             countOfAlbums.put(k.toString().toUpperCase(), Integer.parseInt(v.toString()));
@@ -170,6 +172,25 @@ public class LamdbaTest {
         System.out.print(countOfAlbums.toString());
     }
 
+    /**
+     * ThreadLocal 的 withInitial 传入一个 supplier对象实例来创建对象
+     */
+    @Test
+    public void testThreadLocal() {
+        //通过工厂方式  JVM少加载一个类
+        ThreadLocal<SimpleDateFormat> localFormatter =
+                ThreadLocal.withInitial(() -> new SimpleDateFormat());
+        SimpleDateFormat simpleDateFormat = localFormatter.get();
+        //System.out.print(simpleDateFormat);
 
+        /**
+         * AtomicInteger 是一个应对多线程 高并发 实现序列化的integer类型
+         */
+        AtomicInteger threadId = new AtomicInteger(1);
+        ThreadLocal<Integer> localId
+                = ThreadLocal.withInitial(() -> threadId.incrementAndGet());
+        int idForThisThread = localId.get();
+        System.out.print(idForThisThread);
+    }
 
 }
