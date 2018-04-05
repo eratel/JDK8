@@ -234,8 +234,10 @@ public class LamdbaTest {
                 new User("Violets for Your Furs", 378),
                 new User("Violets for Your Furs", 378),
                 new User("Time Was", 451));
-
-        Map<String, List<User>> collect = users.stream().collect(groupingBy(user -> user.getName()));
+        //计数
+        // Map<String, Long> collect = users.stream().collect(groupingBy(user -> user.getName(), counting()));
+        //分组
+        Map<String, Long> collect = users.stream().collect(groupingBy(user -> user.getName(), counting()));
         System.out.print(collect.get("Violets for Your Furs"));
     }
 
