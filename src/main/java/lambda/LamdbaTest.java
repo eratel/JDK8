@@ -10,6 +10,7 @@ import java.util.stream.Stream;
 
 import static java.util.Arrays.asList;
 import static java.util.stream.Collectors.toList;
+import static junit.framework.Assert.assertEquals;
 
 /**
  * @program: jdk8
@@ -191,6 +192,23 @@ public class LamdbaTest {
                 = ThreadLocal.withInitial(() -> threadId.incrementAndGet());
         int idForThisThread = localId.get();
         System.out.print(idForThisThread);
+    }
+
+
+    /**
+     * HashSet 排序
+     */
+    @Test
+    public void hashSetToStreamSorted() {
+        // BEGIN HASHSET_TO_STREAM_SORTED
+        Set<Integer> numbers = new HashSet<>(asList(4, 3, 2, 1));
+
+        List<Integer> sameOrder = numbers.stream()
+                .sorted()
+                .collect(toList());
+
+        assertEquals(asList(1, 2, 3, 4), sameOrder);
+        // END HASHSET_TO_STREAM_SORTED
     }
 
 }

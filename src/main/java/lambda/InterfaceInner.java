@@ -34,15 +34,17 @@ public class InterfaceInner {
     }
 
 
-    /** lambda第二种格式 ，有参 */
-
+    /**
+     * lambda第二种格式 ，有参
+     */
     @Test
     public void test1(){
         study( user -> System.out.println(user.getName()));
     }
 
     private void study(UserArgsInterface c){
-       c.study(new User("name",10));
+       c.study(new User("name",10)); //传入直接代码片段 对接口实现可以这么理解
+       c.welcome(); //直接执行接口中的方法
     }
 
 
