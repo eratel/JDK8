@@ -5,11 +5,12 @@ import org.junit.Test;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static java.util.Arrays.asList;
-import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.*;
 import static junit.framework.Assert.assertEquals;
 
 /**
@@ -209,6 +210,33 @@ public class LamdbaTest {
 
         assertEquals(asList(1, 2, 3, 4), sameOrder);
         // END HASHSET_TO_STREAM_SORTED
+    }
+
+
+    /**
+     * 分类 partitioningBy返回布尔类型值进行分类
+     */
+    @Test
+    public void bandsAndSolo1() {
+        List<User> users = asList(new User("Bakai", 524),
+                new User("Violets for Your Furs", 378),
+                new User("Time Was", 451));
+        Map<Boolean, List<User>> collect = users.stream().collect(partitioningBy(user -> user.getAge() == 524));
+        System.out.print(collect);
+    }
+
+    /**
+     * 分类 groupingBy 数据分类
+     */
+    @Test
+    public void bandsAndSolo2() {
+        List<User> users = asList(new User("Bakai", 524),
+                new User("Violets for Your Furs", 378),
+                new User("Violets for Your Furs", 378),
+                new User("Time Was", 451));
+
+        Map<String, List<User>> collect = users.stream().collect(groupingBy(user -> user.getName()));
+        System.out.print(collect.get("Violets for Your Furs"));
     }
 
 }
