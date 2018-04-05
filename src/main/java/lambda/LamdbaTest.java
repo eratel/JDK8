@@ -241,4 +241,23 @@ public class LamdbaTest {
         System.out.print(collect.get("Violets for Your Furs"));
     }
 
+
+    /**
+     * 首先先通过 map 转换到另外一个容器  通过joining 拼接
+     * joining 拼接
+     */
+    @Test
+    public void formatArtists() {
+        List<User> users = asList(new User("Bakai", 524),
+                new User("Violets for Your Furs", 378),
+                new User("Violets for Your Furs", 378),
+                new User("Time Was", 451));
+        String result =
+                users.stream()
+                        .map(User :: getName)
+                        //拼接
+                        .collect(joining(", ", "[", "]"));
+        System.out.print(result);
+    }
+
 }
