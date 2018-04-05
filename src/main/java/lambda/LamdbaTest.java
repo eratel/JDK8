@@ -237,8 +237,14 @@ public class LamdbaTest {
         //计数
         // Map<String, Long> collect = users.stream().collect(groupingBy(user -> user.getName(), counting()));
         //分组
-        Map<String, Long> collect = users.stream().collect(groupingBy(user -> user.getName(), counting()));
-        System.out.print(collect.get("Violets for Your Furs"));
+        //{451=[User(name=Time Was, age=451)], 378=[User(name=Violets for Your Furs, age=378), User(name=Violets for Your Furs, age=378)], 524=[User(name=Bakai, age=524)]}
+        Map<Integer, List<User>> collect1 = users.stream()
+                .collect(groupingBy(User::getAge));
+        //{451=[451], 378=[378, 378], 524=[524]}  //mapping 将两组中搞到一起
+        Map<Integer, List<Integer>> collect2 = users.stream()
+                .collect(groupingBy(User::getAge, mapping(User::getAge, toList())));
+
+        System.out.print(collect2);
     }
 
 
