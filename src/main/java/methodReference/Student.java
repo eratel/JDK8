@@ -5,10 +5,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * Author:JettZhou
- * Date: 2017/5/11
- * Tine:14:40
- */
+ * @program: jdk8
+ * @GitHub: https://github.com/ABHSY
+ * @author: ABHSY.Jason
+ * @create: 2018-03-31 16:16
+ * 接口调用
+ **/
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
