@@ -8,10 +8,12 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
- * Author:JettZhou
- * Date: 2017/5/11
- * Tine:15:13
- */
+ * @program: jdk8
+ * @GitHub: https://github.com/ABHSY
+ * @author: ABHSY.Jason
+ * @create: 2018-03-31 16:16
+ * 接口调用
+ **/
 public class SteamMethod {
     private List<String> list = Arrays.asList("spring", "summer", "autumn", "winter", "spr", "SpringMVC");
     private List<Student> data = new ArrayList<>();
