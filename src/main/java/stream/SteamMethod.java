@@ -15,7 +15,7 @@ import java.util.stream.Stream;
  * 接口调用
  **/
 public class SteamMethod {
-    private List<String> list = Arrays.asList("spring", "spring", "autumn", "winter", "spr", "SpringMVC");
+    private List<String> list = Arrays.asList("111", "112", "131", "4", "5", "6");
     private List<Student> data = new ArrayList<>();
 
     {
@@ -61,12 +61,18 @@ public class SteamMethod {
                 .map(String::toUpperCase)
                 .peek(e -> System.out.println("Mapped value: " + e))
                 .collect(Collectors.toList()));
-
-        //sorted 对元素进行排序
-        list.stream().sorted();
-
     }
 
+
+    @Test
+    //compareToIgnoreCase  字典排序方式
+    public  void sortedTest(){
+
+        List<String> collect = list.stream().sorted((x, y) -> x.compareToIgnoreCase(y)).collect(Collectors.toList());
+        System.out.print(collect);
+        System.out.print(list.stream().sorted((x,y)-> new Integer(x).compareTo(new Integer(y))).collect(Collectors.toList()));
+
+    }
 
     /**
      * 聚合操作（非懒加载）
