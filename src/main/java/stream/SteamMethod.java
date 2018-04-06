@@ -147,14 +147,17 @@ public class SteamMethod {
         System.out.println("anyMatch: " + anyMatch); // 打印结果：anyMatch: true
 
         //noMatch   判断流中是否所有的元素都不符合要求，是的话返回true。
+        boolean noMatch = Stream.of(1, 2, 3, 4)
+                .noneMatch(integer -> integer < 0);
+        System.out.println("noMatch: " + noMatch); // 打印结果：noMatch: true
 
         //获取第一个元素，如果Stream中的元素没有排序，并行操作中调用可能会随机返回一个。
         Optional<Integer> first = Stream.of(1, 2, 3, 4).findFirst();
-        System.out.println(first);
+        System.out.println(first.get());
 
         //获取Stream中的元素，串行操作中默认是选取第一个元素，并行操作中取到的结果不同。
         Optional<Integer> any = Stream.of(1, 2, 3, 4).findAny();
-        System.out.println(any);
+        System.out.println(any.get());
 
         //limit 和 sql中的limit类似  截断数据
         System.out.println("----------------------limit 和sql中的limit类似  截断数据");
