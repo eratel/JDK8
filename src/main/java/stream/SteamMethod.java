@@ -15,7 +15,7 @@ import java.util.stream.Stream;
  * 接口调用
  **/
 public class SteamMethod {
-    private List<String> list = Arrays.asList("spring", "summer", "autumn", "winter", "spr", "SpringMVC");
+    private List<String> list = Arrays.asList("spring", "spring", "autumn", "winter", "spr", "SpringMVC");
     private List<Student> data = new ArrayList<>();
 
     {
@@ -47,6 +47,7 @@ public class SteamMethod {
         // collect      收集转换后的元素将其转换成map list,同时可以进行分组，排序等一系列操作
         System.out.println("----------------------collect      收集转换后的元素将其转换成map list,同时可以进行分组，排序等一系列操作");
         System.out.println(list.stream().map(String::toUpperCase).collect(Collectors.toList()).toString());
+        //set 的唯一特性  会让重复元素去掉
         System.out.println(list.stream().map(String::toUpperCase).collect(Collectors.toSet()));
         // equipmentSetEffectMetaMap = equipmentSetMetaList.stream().collect(Collectors.toMap(EquipmentSetMeta::getId, EquipmentSetEffectMeta -> EquipmentSetEffectMeta));
 
