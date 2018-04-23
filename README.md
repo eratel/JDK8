@@ -1,6 +1,5 @@
  * GitHub: https://github.com/ABHSY
  * author: ABHSY.Jason
- * create: 2018-03-31 16:16
 
 
  **有相对jvm  多线程并发 以及 lamdba 函数式编程的小伙伴。**
