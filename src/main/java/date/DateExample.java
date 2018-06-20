@@ -33,8 +33,9 @@ public class DateExample {
 
 
         //输出当前时间 不包含日期
+        LocalDateTime now = LocalDateTime.now();
         LocalTime time = LocalTime.now();
-        System.out.println("local time now : " + time);
+        System.out.println("LocalDateTime : " + now.format(DateTimeFormatter.ofPattern("yyyy/MM/dd/hh/ss")));
 
         //输出当前的日期和时间
         LocalDateTime localDateTime = LocalDateTime.now();
